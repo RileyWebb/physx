@@ -1,7 +1,9 @@
 #include "physx/physx.h"
 
+#include <SDL2/SDL.h>
+
 SDL_Window *window;
-physx_simulation *currentSimulation;
+physx_simulation_t *currentSimulation;
 
 int physx_init() {
 
@@ -9,14 +11,15 @@ int physx_init() {
     {
 
     }
-
+    //CREATE WINDOW
+    //START EVENT LISTENER
     return 0;
 }
 
-int physx_start(physx_simulation *simulation) {
+int physx_start(physx_simulation_t *simulation) {
     if (simulation != NULL) {
         currentSimulation = simulation;
-        window SDL_CreateWindow(currentSimulation->name, 1000, 1000, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 0);
+        //window SDL_CreateWindow(currentSimulation->name, 1000, 1000, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 0);
 
     }
 
@@ -29,5 +32,10 @@ int physx_start(physx_simulation *simulation) {
 
 void physx_update()
 {
-    ((void(*)())currentSimulation->update)();
+    //((void(*)())currentSimulation->update)();
+}
+
+void *physx_register_simulation(physx_simulation_t *sim) {
+    printf("aasdadssadada\n");
+    return NULL;
 }

@@ -1,18 +1,16 @@
 #include <physx/physx.h>
+#include <stdio.h>
 
-void *test()
-{
-    printf("abcdefg\n");
-}
+//#include <libxml2/libxml/parser.h>
+
 
 int main()
 {
+    physx_build_simulation((void*)0);
+    physx_load_simulation();
     physx_init();
-    physx_simulation sim = {
-            .late_update = NULL,
-            .update = &test,
-    };
 
-    physx_start(&sim);
+
+    //physx_start(&sim);
     return 0;
 }
